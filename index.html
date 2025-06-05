@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savourez Cameroun - Restaurant Africain Authentique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+   
+</head>
+<body class="bg-gray-50 poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full cameroon-flag flex items-center justify-center mr-3">
+                    <i class="fas fa-utensils text-white text-xl"></i>
+                </div>
+                <a href="#" class="text-2xl font-bold playfair text-gray-800">Savourez<span class="text-yellow-600">Cameroun</span></a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-yellow-600 transition-all">Accueil</a>
+                <a href="#menu" class="text-gray-800 hover:text-yellow-600 transition-all">Menu</a>
+                <a href="#about" class="text-gray-800 hover:text-yellow-600 transition-all">À Propos</a>
+                <a href="#gallery" class="text-gray-800 hover:text-yellow-600 transition-all">Galerie</a>
+                <a href="#contact" class="text-gray-800 hover:text-yellow-600 transition-all">Contact</a>
+            </div>
+            
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl text-gray-800"></i>
+            </button>
+            
+            <div class="hidden md:block">
+                <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-full transition-all">
+                    Réservation <i class="fas fa-phone ml-2"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white w-full py-3 px-4" id="mobile-menu">
+            <a href="#home" class="block py-2 text-gray-800 hover:text-yellow-600">Accueil</a>
+            <a href="#menu" class="block py-2 text-gray-800 hover:text-yellow-600">Menu</a>
+            <a href="#about" class="block py-2 text-gray-800 hover:text-yellow-600">À Propos</a>
+            <a href="#gallery" class="block py-2 text-gray-800 hover:text-yellow-600">Galerie</a>
+            <a href="#contact" class="block py-2 text-gray-800 hover:text-yellow-600">Contact</a>
+            <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-full mt-2 transition-all">
+                Réservation <i class="fas fa-phone ml-2"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern relative h-screen flex items-center">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container mx-auto px-4 z-10 text-white">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 playfair">Découvrez la Vraie Saveur du Cameroun</h1>
+                <p class="text-xl mb-8">Plats traditionnels préparés avec passion et authenticité. Une explosion de saveurs qui vous transportera au cœur de l'Afrique.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-full text-lg transition-all">
+                        Voir le Menu <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                    <button class="border-2 border-white hover:bg-white hover:bg-opacity-20 text-white px-8 py-3 rounded-full text-lg transition-all">
+                        Réserver une Table
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Restaurant Info Bar -->
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 py-4">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-white">
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-clock text-2xl text-yellow-500 mr-3"></i>
+                        <div>
+                            <p class="font-bold">Horaires</p>
+                            <p>Lundi - Dimanche: 11h - 22h</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt text-2xl text-yellow-500 mr-3"></i>
+                        <div>
+                            <p class="font-bold">Adresse</p>
+                            <p>123 Avenue de l'Indépendance, Yaoundé</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-phone text-2xl text-yellow-500 mr-3"></i>
+                        <div>
+                            <p class="font-bold">Téléphone</p>
+                            <p>(237) 123 456 789</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold playfair">Nos Spécialités</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
+                <p class="max-w-2xl mx-auto mt-6 text-gray-600">Découvrez nos plats les plus populaires qui ont conquis le cœur de nos clients.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dish 1 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://i.ytimg.com/vi/tHsOyXl971I/maxresdefault.jpg" 
+                             alt="Ndolé" 
+                             class="w-full h-full object-cover saturate-150 hover:scale-110 transition-all duration-500">
+                        <div class="absolute top-4 right-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Populaire
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 playfair">Ndolé</h3>
+                        <p class="text-gray-600 mb-4">Plat national du Cameroun aux feuilles de ndolé, arachides et viandes.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-600 font-bold text-lg">4 500 FCFA</span>
+                            <button class="bg-black text-white px-4 py-1 rounded-full transition-all hover:bg-yellow-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 2 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Poulet DG" 
+                             class="w-full h-full object-cover saturate-150 hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 playfair">Poulet DG</h3>
+                        <p class="text-gray-600 mb-4">Poulet mijoté avec des légumes et plantains, une exclusivité camerounaise.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-600 font-bold text-lg">5 000 FCFA</span>
+                            <button class="bg-black text-white px-4 py-1 rounded-full transition-all hover:bg-yellow-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://static.africa-press.net/mali/sites/21/2023/12/sm_1702579908.378343.jpg" 
+                             alt="Achu jaune" 
+                             class="w-full h-full object-cover saturate-150 hover:scale-110 transition-all duration-500">
+                        <div class="absolute top-4 right-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Nouveau
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 playfair">Achu jaune</h3>
+                        <p class="text-gray-600 mb-4">Mets traditionnel à base de macabo accompagné d'une sauce jaune épicée.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-600 font-bold text-lg">3 800 FCFA</span>
+                            <button class="bg-black text-white px-4 py-1 rounded-full transition-all hover:bg-yellow-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 4 -->
+                <div class="food-card bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-xl">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Bongo Tchobi" 
+                             class="w-full h-full object-cover saturate-150 hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 playfair">Bongo Tchobi</h3>
+                        <p class="text-gray-600 mb-4">Poisson noir fumé cuit dans une sauce épicée et huile de palme.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-600 font-bold text-lg">4 200 FCFA</span>
+                            <button class="bg-black text-white px-4 py-1 rounded-full transition-all hover:bg-yellow-600">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white px-8 py-3 rounded-full text-lg transition-all">
+                    Voir Tous les Plats <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Notre Restaurant" 
+                             class="w-full rounded-lg shadow-xl tilt transition-all">
+                        <div class="absolute -bottom-4 -right-4 bg-yellow-600 text-white px-6 py-4 rounded-lg shadow-lg">
+                            <div class="text-center">
+                                <p class="text-3xl font-bold">10+</p>
+                                <p class="text-sm">Ans d'expérience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 playfair">Notre Histoire</h2>
+                    <div class="w-24 h-1 bg-yellow-600 mb-6"></div>
+                    <p class="mb-4 text-gray-700">Fondé en 2013 par le chef Joseph Mbida, Savourez Cameroun est né du désir de partager les richesses culinaires du Cameroun avec le monde. Notre mission est de présenter les traditions culinaires camerounaises dans toute leur authenticité.</p>
+                    <p class="mb-6 text-gray-700">Chaque plat est préparé avec des ingrédients frais et locaux, selon des recettes transmises de génération en génération. Nous sommes fiers de représenter la diversité culinaire de notre beau pays.</p>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle text-yellow-600 mr-3"></i>
+                            <span>Ingrédients 100% frais et locaux</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle text-yellow-600 mr-3"></i>
+                            <span>Recettes traditionnelles authentiques</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow-600 mr-3"></i>
+                            <span>Service chaleureux et familial</span>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-full transition-all">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Menu -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold playfair">Notre Menu</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
+                <p class="max-w-2xl mx-auto mt-6 text-gray-600">Explorez notre sélection de plats traditionnels camerounais.</p>
+            </div>
+            
+            <!-- Menu Tabs -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-full bg-gray-100 p-1">
+                    <button class="menu-tab-btn active px-6 py-2 rounded-full bg-yellow-600 text-white transition-all" data-category="entrees">
+                        Entrées
+                    </button>
+                    <button class="menu-tab-btn px-6 py-2 rounded-full transition-all hover:bg-gray-200" data-category="plats">
+                        Plats Principaux
+                    </button>
+                    <button class="menu-tab-btn px-6 py-2 rounded-full transition-all hover:bg-gray-200" data-category="boissons">
+                        Boissons
+                    </button>
+                    <button class="menu-tab-btn px-6 py-2 rounded-full transition-all hover:bg-gray-200" data-category="desserts">
+                        Desserts
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="max-w-4xl mx-auto">
+                <!-- Entrées -->
+                <div class="menu-category" id="entrees">
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Beignets de Haricots</h3>
+                                <p class="text-gray-600">Beignets croquants à base de haricots et épices, servis avec une sauce pimentée</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">1 500 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Boules d'Accra</h3>
+                                <p class="text-gray-600">Beignets de morue traditionnels, croustillants à l'extérieur et moelleux à l'intérieur</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">1 800 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Salade de Folon</h3>
+                                <p class="text-gray-600">Salade rafraîchissante à base de feuilles de folon, tomates et oignons</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">2 000 FCFA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plats Principaux (hidden by default) -->
+                <div class="menu-category hidden" id="plats">
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Ndolé Complet</h3>
+                                <p class="text-gray-600">Avec poulet, bœuf et crevettes séchées, accompagné de plantains et igname</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">5 500 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Poulet D.G.</h3>
+                                <p class="text-gray-600">Poulet mijoté avec plantains mûrs, légumes et épices camerounaises</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">5 000 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Ekwang</h3>
+                                <p class="text-gray-600">Macabo râpé enroulé dans des feuilles et cuit dans une sauce à l'huile de palme</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">4 800 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Kondrè aux Bananes Mûres</h3>
+                                <p class="text-gray-600">Viande de bœuf cuite lentement avec des bananes plantain mûres et épices</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">4 500 FCFA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Boissons (hidden by default) -->
+                <div class="menu-category hidden" id="boissons">
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Jus de Fruit Naturel</h3>
+                                <p class="text-gray-600">Jus d'ananas, mangue, gingembre ou bissap (au choix)</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">1 500 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Bière Locale</h3>
+                                <p class="text-gray-600">33 Export, Guinness ou Beaufort (25cl)</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">1 200 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Vin de Palme</h3>
+                                <p class="text-gray-600">Boisson traditionnelle fermentée à base de sève de palmier</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">2 000 FCFA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desserts (hidden by default) -->
+                <div class="menu-category hidden" id="desserts">
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Beignet de Banane</h3>
+                                <p class="text-gray-600">Beignets moelleux à la banane plantain mûre</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">1 200 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Pain de Singe</h3>
+                                <p class="text-gray-600">Fruit du baobab en smoothie ou sorbet</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">1 800 FCFA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item border-b border-gray-200 py-6 px-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold playfair">Papaye à la Noix de Coco</h3>
+                                <p class="text-gray-600">Papaye fraîche avec lait de coco et noix de coco râpée</p>
+                            </div>
+                            <span class="text-yellow-600 font-bold">1 500 FCFA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold playfair">Galerie</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
+                <p class="max-w-2xl mx-auto mt-6 text-gray-600">Découvrez l'ambiance chaleureuse de notre restaurant et l'art de notre cuisine.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Restaurant Interior" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1589&q=80" 
+                         alt="Food Preparation" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Restaurant View" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Chef Cooking" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1651440204296-a79fa9988007?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Happy Customers" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://plus.unsplash.com/premium_photo-1695297516794-8bc77890e35c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="African Food" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold playfair">Témoignages</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
+                <p class="max-w-2xl mx-auto mt-6 text-gray-600">Ce que nos clients disent de nous.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                 alt="Marie D." 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Marie D.</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Le Ndolé ici est exactement comme celui que ma grand-mère préparait au village. Un vrai retour en enfance ! L'ambiance est chaleureuse et le service impeccable."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                                 alt="Paul T." 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Paul T.</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Je recommande vivement le Poulet D.G. et le Kondrè aux bananes mûres. Les portions sont généreuses et les saveurs authentiques. Un petit coin du Cameroun en ville !"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                                 alt="Amina K." 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Amina K.</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Nous venons chaque semaine en famille. Les enfants adorent les beignets de banane et nous, le Bongo Tchobi. Le service est toujours souriant et attentionné."</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-12">
+                <button class="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white px-6 py-2 rounded-full transition-all">
+                    Laisser un avis <i class="fas fa-pen ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="py-16 bg-yellow-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold playfair">Réservez Votre Table</h2>
+                <div class="w-24 h-1 bg-white mx-auto mt-4"></div>
+                <p class="max-w-2xl mx-auto mt-6">Garantissez votre place dans notre restaurant et vivez une expérience culinaire inoubliable.</p>
+            </div>
+            
+            <form class="max-w-2xl mx-auto bg-white rounded-lg shadow-xl p-8 text-gray-800">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block mb-1 font-medium">Nom</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block mb-1 font-medium">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block mb-1 font-medium">Téléphone</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                    </div>
+                    
+                    <div>
+                        <label for="date" class="block mb-1 font-medium">Date</label>
+                        <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                    </div>
+                    
+                    <div>
+                        <label for="time" class="block mb-1 font-medium">Heure</label>
+                        <select id="time" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                            <option value="11:00">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:00">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:00">13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:00">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:00">21:00</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="people" class="block mb-1 font-medium">Nombre de Personnes</label>
+                        <select id="people" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                            <option value="1">1 personne</option>
+                            <option value="2">2 personnes</option>
+                            <option value="3">3 personnes</option>
+                            <option value="4">4 personnes</option>
+                            <option value="5">5 personnes</option>
+                            <option value="6">6 personnes</option>
+                            <option value="7">7+ personnes</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label for="message" class="block mb-1 font-medium">Demandes Spéciales</label>
+                    <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600"></textarea>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button type="submit" class="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full text-lg transition-all">
+                        Réserver Maintenant <i class="fas fa-check ml-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold playfair">Contactez-Nous</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
+                <p class="max-w-2xl mx-auto mt-6 text-gray-600">Nous sommes à votre disposition pour toute question ou réservation.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <div class="flex items-start mb-8">
+                            <div class="bg-yellow-600 text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold playfair mb-2">Adresse</h3>
+                                <p class="text-gray-600">123 Avenue de l'Indépendance</p>
+                                <p class="text-gray-600">Yaoundé, Cameroun</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-8">
+                            <div class="bg-yellow-600 text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold playfair mb-2">Téléphone</h3>
+                                <p class="text-gray-600">(237) 123 456 789</p>
+                                <p class="text-gray-600">(237) 987 654 321</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-600 text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold playfair mb-2">Email</h3>
+                                <p class="text-gray-600">contact@savourezcameroun.com</p>
+                                <p class="text-gray-600">reservation@savourezcameroun.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-xl font-bold playfair mb-4">Suivez-Nous</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-all">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-all">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-all">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-all">
+                                    <i class="fab fa-tripadvisor"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <div class="mb-6">
+                            <label for="contact-name" class="block mb-1 font-medium">Nom Complet</label>
+                            <input type="text" id="contact-name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="contact-email" class="block mb-1 font-medium">Email</label>
+                            <input type="email" id="contact-email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="contact-subject" class="block mb-1 font-medium">Sujet</label>
+                            <input type="text" id="contact-subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="contact-message" class="block mb-1 font-medium">Message</label>
+                            <textarea id="contact-message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-600"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-full transition-all w-full">
+                            Envoyer Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.5848212699996!2d11.514371514757742!3d3.8678037972660285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf7b4b8f1b21%3A0x1b2bbb2f5a0c0a0d!2sYaound%C3%A9%2C%20Cameroun!5e0!3m2!1sfr!2sus!4v1623844762954!5m2!1sfr!2sus" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold playfair mb-4">Savourez Cameroun</h3>
+                    <p class="text-gray-400">Découvrez les saveurs authentiques du Cameroun dans notre restaurant chaleureux et convivial.</p>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-600 transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-600 transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-600 transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-600 transition-all"><i class="fab fa-yelp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold playfair mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-yellow-600 transition-all">Accueil</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-yellow-600 transition-all">Menu</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-yellow-600 transition-all">À Propos</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-yellow-600 transition-all">Galerie</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-yellow-600 transition-all">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold playfair mb-4">Horaires</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Lundi - Vendredi:</span>
+                            <span>11h - 22h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Samedi:</span>
+                            <span>11h - 23h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Dimanche:</span>
+                            <span>12h - 20h</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold playfair mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos offres spéciales et actualités.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Votre Email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-800">
+                        <button class="bg-yellow-600 hover:bg-yellow-700 px-4 rounded-r transition-all">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Savourez Cameroun. Tous droits réservés. Conçu avec <i class="fas fa-heart text-red-500"></i> pour la gastronomie camerounaise.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-yellow-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 invisible hover:bg-yellow-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- JavaScript -->
+<script src="Js/homePage.js"></script>
+</body>
+</html>
