@@ -74,3 +74,45 @@
 #modal-close:hover {
   color: #fbbf24; /* Tailwind yellow-400 */
 }
+
+/* Review Modal Styles */
+#review-modal {
+  transition: opacity 0.3s ease;
+}
+
+#review-modal.opacity-0 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#review-modal.opacity-100 {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Testimonials horizontal scroll carousel */
+#testimonial-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+#testimonial-container > div {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+}
+
+#testimonial-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+#testimonial-container::-webkit-scrollbar-thumb {
+  background-color: #fbbf24; /* Tailwind yellow-400 */
+  border-radius: 4px;
+}
+
+#testimonial-container::-webkit-scrollbar-track {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}

@@ -92,3 +92,73 @@ document.getElementById('image-modal').addEventListener('click', (e) => {
         modal.classList.remove('opacity-100');
     }
 });
+
+// Review Modal Functionality
+const reviewModal = document.getElementById('review-modal');
+const reviewForm = document.getElementById('review-form');
+const leaveReviewBtn = document.getElementById('leave-review-btn');
+const reviewModalClose = document.getElementById('review-modal-close');
+
+leaveReviewBtn.addEventListener('click', () => {
+    reviewModal.classList.remove('opacity-0', 'pointer-events-none');
+    reviewModal.classList.add('opacity-100');
+});
+
+reviewModalClose.addEventListener('click', () => {
+    reviewModal.classList.add('opacity-0', 'pointer-events-none');
+    reviewModal.classList.remove('opacity-100');
+});
+
+reviewModal.addEventListener('click', (e) => {
+    if (e.target.id === 'review-modal') {
+        reviewModal.classList.add('opacity-0', 'pointer-events-none');
+        reviewModal.classList.remove('opacity-100');
+    }
+});
+
+// Handle review form submission
+reviewForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = reviewForm['name'].value.trim();
+    const email = reviewForm['email'].value.trim();
+    const message = reviewForm['message'].value.trim();
+
+    if (!name || !email || !message) {
+        alert('Veuillez remplir tous les champs.');
+        return;
+    }
+
+    // Create new testimonial element
+    const testimonialContainer = document.getElementById('testimonial-container');
+    const newTestimonial = document.createElement('div');
+    newTestimonial.className = 'bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-all';
+    newTestimonial.innerHTML = `
+        <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-yellow-600 flex items-center justify-center text-white font-bold text-lg">
+                ${name.charAt(0).toUpperCase()}
+            </div>
+            <div>
+                <h4 class="font-bold">${name}</h4>
+                <div class="flex text-yellow-500">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+        <p class="text-gray-600">${message}</p>
+    `;
+
+    testimonialContainer.appendChild(newTestimonial);
+
+    // Close modal and reset form
+    reviewModal.classList.add('opacity-0', 'pointer-events-none');
+    reviewModal.classList.remove('opacity-100');
+    reviewForm.reset();
+
+    // Scroll testimonial container to the new testimonial
+    newTestimonial.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+});
