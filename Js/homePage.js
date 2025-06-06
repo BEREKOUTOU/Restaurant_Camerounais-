@@ -60,3 +60,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Image Zoom Modal Functionality
+document.querySelectorAll('#gallery .fa-search-plus').forEach(icon => {
+    icon.addEventListener('click', (e) => {
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        // Find the image element related to the clicked icon
+        const galleryItem = e.target.closest('.relative');
+        if (galleryItem) {
+            const img = galleryItem.querySelector('img');
+            if (img) {
+                modalImage.src = img.src;
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100');
+            }
+        }
+    });
+});
+
+document.getElementById('modal-close').addEventListener('click', () => {
+    const modal = document.getElementById('image-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100');
+});
+
+document.getElementById('image-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'image-modal') {
+        const modal = document.getElementById('image-modal');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100');
+    }
+});

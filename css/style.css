@@ -36,3 +36,41 @@
 .menu-item:nth-child(even) {
     background-color: #f8f8f8;
 }
+
+/* Modal styles for image zoom */
+#image-modal {
+  transition: opacity 0.3s ease;
+}
+
+#image-modal.opacity-0 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#image-modal.opacity-100 {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#image-modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+#modal-close {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+#modal-close:hover {
+  color: #fbbf24; /* Tailwind yellow-400 */
+}
