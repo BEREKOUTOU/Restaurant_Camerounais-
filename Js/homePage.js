@@ -123,6 +123,7 @@ reviewForm.addEventListener('submit', (e) => {
     const name = reviewForm['name'].value.trim();
     const email = reviewForm['email'].value.trim();
     const message = reviewForm['message'].value.trim();
+    const imageInput = reviewForm['image'];
 
     if (!name || !email || !message) {
         alert('Veuillez remplir tous les champs.');
@@ -133,32 +134,92 @@ reviewForm.addEventListener('submit', (e) => {
     const testimonialContainer = document.getElementById('testimonial-container');
     const newTestimonial = document.createElement('div');
     newTestimonial.className = 'bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-all';
-    newTestimonial.innerHTML = `
-        <div class="flex items-center mb-4">
-            <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-yellow-600 flex items-center justify-center text-white font-bold text-lg">
-                ${name.charAt(0).toUpperCase()}
-            </div>
-            <div>
-                <h4 class="font-bold">${name}</h4>
-                <div class="flex text-yellow-500">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+
+    // Prepare image HTML
+    let imageHTML = `<div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-yellow-600 flex items-center justify-center text-white font-bold text-lg">
+                        ${name.charAt(0).toUpperCase()}
+                    </div>`;
+
+    if (imageInput && imageInput.files && imageInput.files[0]) {
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            imageHTML = `<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="${event.target.result}" alt="${name}" class="w-full h-full object-cover">
+                         </div>`;
+            // Update newTestimonial innerHTML with image
+            newTestimonial.innerHTML = `
+                <div class="flex items-center mb-4">
+                    ${imageHTML}
+                    <div>
+                        <h4 class="font-bold">${name}</h4>
+                        <div class="flex text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600">${message}</p>
+            `;
+            testimonialContainer.appendChild(newTestimonial);
+            // Scroll testimonial container to the new testimonial
+            newTestimonial.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+        };
+        reader.readAsDataURL(file);
+    } else {
+        // No image selected, use default initial
+        newTestimonial.innerHTML = `
+            <div class="flex items-center mb-4">
+                ${imageHTML}
+                <div>
+                    <h4 class="font-bold">${name}</h4>
+                    <div class="flex text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-        <p class="text-gray-600">${message}</p>
-    `;
-
-    testimonialContainer.appendChild(newTestimonial);
+            <p class="text-gray-600">${message}</p>
+        `;
+        testimonialContainer.appendChild(newTestimonial);
+        // Scroll testimonial container to the new testimonial
+        newTestimonial.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+    }
 
     // Close modal and reset form
     reviewModal.classList.add('opacity-0', 'pointer-events-none');
     reviewModal.classList.remove('opacity-100');
     reviewForm.reset();
-
-    // Scroll testimonial container to the new testimonial
-    newTestimonial.scrollIntoView({ behavior: 'smooth', inline: 'start' });
 });
+
+// Automatic horizontal scrolling for testimonials with pause on hover
+const testimonialContainer = document.getElementById('testimonial-container');
+let scrollAmount = 0;
+let scrollStep = 1; // pixels per interval
+let scrollInterval = null;
+
+function startAutoScroll() {
+    scrollInterval = setInterval(() => {
+        if (testimonialContainer.scrollLeft >= testimonialContainer.scrollWidth - testimonialContainer.clientWidth) {
+            testimonialContainer.scrollLeft = 0;
+        } else {
+            testimonialContainer.scrollLeft += scrollStep;
+        }
+    }, 20); // adjust speed here
+}
+
+function stopAutoScroll() {
+    clearInterval(scrollInterval);
+}
+
+testimonialContainer.addEventListener('mouseenter', stopAutoScroll);
+testimonialContainer.addEventListener('mouseleave', startAutoScroll);
+
+// Start auto scrolling on page load
+startAutoScroll();
