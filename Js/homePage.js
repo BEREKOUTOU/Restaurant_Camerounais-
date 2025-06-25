@@ -44,8 +44,14 @@ backToTopButton.addEventListener('click', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
+
+        const href = this.getAttribute('href');
+        if (href === '#') {
+            // Do nothing or optionally scroll to top
+            return;
+        }
                 
-        const target = document.querySelector(this.getAttribute('href'));
+         const target = document.querySelector(href);
         if (target) {
             window.scrollTo({
                 top: target.offsetTop - 80,
@@ -198,6 +204,7 @@ reviewForm.addEventListener('submit', (e) => {
     reviewForm.reset();
 });
 
+
 // Automatic horizontal scrolling for testimonials with pause on hover
 const testimonialContainer = document.getElementById('testimonial-container');
 let scrollAmount = 0;
@@ -223,3 +230,21 @@ testimonialContainer.addEventListener('mouseleave', startAutoScroll);
 
 // Start auto scrolling on page load
 startAutoScroll();
+
+const galleryItems = document.querySelectorAll('#gallery .relative,#popular-dishes .food-card');
+
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    galleryItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+        const revealPoint = 150; // Adjust this value to trigger earlier or later
+        if (itemTop < windowHeight - revealPoint) {
+            item.classList.add('reveal-active');
+        } else {
+            item.classList.remove('reveal-active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
