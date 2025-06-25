@@ -116,3 +116,20 @@
 #testimonial-container::-webkit-scrollbar-track {
   background-color: #f3f4f6; /* Tailwind gray-100 */
 }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-pattern {
+    background-image: url('https://plus.unsplash.com/premium_photo-1661954531673-440d23a6eb79?q=80&w=1024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  }
+
+  #home {
+    flex-direction: column;
+    align-items: center;
+  }
+  #info-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+   
+}
